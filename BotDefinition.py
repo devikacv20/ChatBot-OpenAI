@@ -15,10 +15,8 @@ class OpenAIBot:
         try:
             print(f"Conversation: {self.conversation}") 
             
-            # Make the API request
             response = openai.ChatCompletion.create(model=self.engine, messages=self.conversation)
             
-            # Extracting assistant's response
             assistant_response = response['choices'][0]['message']['content'].strip()
             self.add_message("assistant", assistant_response)
             
